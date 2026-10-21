@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff6fae">
+<title>For My Jaanu 💗</title>
+<style>
+  :root { --pink:#ff5fa2; --deep:#c91862; --pale:#fff0f6; --ink:#54243a; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; min-height:100vh; overflow-x:hidden; color:var(--ink);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #fff9fc 0%, #ffe4f0 40%, #ffc3dd 100%);
+  }
+  .hearts { position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+  .heart { position:absolute; bottom:-50px; opacity:.55; animation:floatUp linear infinite; }
+  @keyframes floatUp { from { transform:translateY(0) rotate(0deg); opacity:0; } 10%{opacity:.55} to { transform:translateY(-115vh) rotate(35deg); opacity:0; } }
+  .wrap { position:relative; z-index:1; width:min(760px, 100%); margin:auto; padding:22px 16px 48px; }
+  .pill { display:inline-block; padding:8px 13px; border:1px solid #ffb2d2; border-radius:99px; background:#ffffffa8; font-size:.82rem; }
+  header { text-align:center; padding:34px 8px 22px; }
+  .big-heart { font-size:3.3rem; animation:pulse 1.5s ease-in-out infinite; display:inline-block; filter:drop-shadow(0 8px 12px #ff82b777); }
+  @keyframes pulse { 50% { transform:scale(1.12); } }
+  h1 { font-size:clamp(2.25rem, 9vw, 4rem); line-height:1.05; margin:14px 0 12px; color:var(--deep); letter-spacing:-.04em; }
+  .subtitle { max-width:500px; margin:0 auto; line-height:1.65; font-size:1.02rem; }
+  .card { background:#ffffffc9; border:1px solid #ffffff; border-radius:25px; padding:23px 19px; margin:15px 0; box-shadow:0 14px 35px #c9186214; backdrop-filter:blur(8px); }
+  .countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px; }
+  .timebox { border-radius:16px; background:var(--pale); padding:13px 4px; text-align:center; border:1px solid #ffd0e3; }
+  .timebox strong { display:block; font-size:1.55rem; color:var(--deep); }
+  .timebox span { font-size:.75rem; }
+  h2 { color:var(--deep); margin:0 0 12px; font-size:1.4rem; }
+  p { line-height:1.75; }
+  .btn { border:0; border-radius:999px; padding:14px 20px; font-size:1rem; font-weight:750; cursor:pointer; width:100%; color:white; background:linear-gradient(135deg,#ff72b0,#e82e83); box-shadow:0 9px 20px #e82e8330; transition:transform .15s; }
+  .btn:active { transform:scale(.98); }
+  .secondary { background:#fff; color:var(--deep); border:1px solid #ffb5d4; box-shadow:none; margin-top:10px; }
+  #letter { display:none; animation:appear .5s ease both; }
+  #letter.open { display:block; }
+  @keyframes appear { from { opacity:0; transform:translateY(12px); } to {opacity:1; transform:translateY(0)} }
+  .letter-text { white-space:pre-line; }
+  .reasons { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .reason { background:#fff4f9; border:1px solid #ffd6e7; padding:14px; border-radius:16px; line-height:1.5; }
+  .reason b { display:block; color:var(--deep); margin-bottom:4px; }
+  .small { font-size:.85rem; opacity:.78; }
+  footer { text-align:center; padding:20px 6px 0; font-size:.9rem; }
+  .burst { position:fixed; z-index:10; pointer-events:none; animation:burst 1.6s ease-out forwards; font-size:22px; }
+  @keyframes burst { from { transform:translateY(0) scale(.6); opacity:1 } to { transform:translateY(-170px) scale(1.4); opacity:0 } }
+  @media (max-width:390px) { .card{padding:19px 15px} .reasons{grid-template-columns:1fr} .timebox strong{font-size:1.3rem} }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main class="wrap">
+  <header>
+    <span class="pill">A little surprise made just for you 💌</span>
+    <div class="big-heart" aria-hidden="true">💗</div>
+    <h1>Happy Birthday,<br>Jaanu!</h1>
+    <p class="subtitle">Even if miles separate us, you still have the closest place in my heart. This little corner of the internet is all yours. 💕</p>
+    <p><span class="pill">30 October 2026 🎂</span></p>
+  </header>
+
+  <section class="card" aria-labelledby="countTitle">
+    <h2 id="countTitle">Counting down to your day ✨</h2>
+    <p class="small">Every second brings us closer to celebrating you.</p>
+    <div class="countdown" aria-live="polite">
+      <div class="timebox"><strong id="days">--</strong><span>Days</span></div>
+      <div class="timebox"><strong id="hours">--</strong><span>Hours</span></div>
+      <div class="timebox"><strong id="minutes">--</strong><span>Minutes</span></div>
+      <div class="timebox"><strong id="seconds">--</strong><span>Seconds</span></div>
+    </div>
+    <p id="countMessage" class="small"></p>
+  </section>
+
+  <section class="card">
+    <h2>A little reminder for you 🌷</h2>
+    <p>Distance means we can't always hold hands, share a cake at the same table, or see each other's smiles in person. But it doesn't stop me from caring about you, cheering for you, and wishing beautiful things for you.</p>
+    <p>Today, this page is my tiny way of saying: <b>you matter to me, Jaanu.</b> 💗</p>
+  </section>
+
+  <section class="card">
+    <h2>5 little things I adore about you 💞</h2>
+    <div class="reasons">
+      <div class="reason"><b>01 · Your smile 😊</b>The thought of it can brighten an ordinary day.</div>
+      <div class="reason"><b>02 · Your heart 💓</b>The person you are is more special than any gift.</div>
+      <div class="reason"><b>03 · Our moments 🫶</b>Even small conversations can become favourite memories.</div>
+      <div class="reason"><b>04 · Your dreams ✨</b>I hope life brings you so many reasons to feel proud.</div>
+      <div class="reason"><b>05 · Simply you 🎀</b>You don't have to be perfect to be precious to me.</div>
+    </div>
+    <p class="small">Chet's note: change these lines to your own shared memories if you want to make it even more personal.</p>
+  </section>
+
+  <section class="card" style="text-align:center">
+    <div style="font-size:2.2rem">💌</div>
+    <h2>Ready for your surprise?</h2>
+    <p>There's a little letter here, written with you in mind.</p>
+    <button class="btn" id="openLetter" type="button">Open My Heart 💗</button>
+    <div id="letter" class="card" style="margin-top:18px; text-align:left">
+      <h2>To my Jaanu, ❤️</h2>
+      <p class="letter-text">Happy Birthday, meri jaan! 🎂💗
+
+Kaash aaj main tere paas hota, tujhe saamne dekhkar birthday wish karta aur tere chehre par woh smile dekh pata. 🫂
+
+Door rehne ka matlab ye nahi ki tu mere liye kam special hai. Tu mere dil ke kareeb hai, chahe hum alag-alag states mein hi kyun na hon.
+
+Main har cheez perfect karne ka vaada nahi kar sakta, par main chahta hoon ki tere paas hamesha khush rehne, apne sapne poore karne aur khud par proud feel karne ki wajah ho.
+
+Teri smile hamesha bani rahe, teri wishes poori hon, aur ek din hum tera birthday screen ke through nahi, saath baithkar celebrate karein. ❤️
+
+Happy Birthday, meri favourite person.
+With love,
+Tera Chet 💌</p>
+      <p style="text-align:center;font-size:1.5rem">💗 💗 💗</p>
+    </div>
+    <button class="btn secondary" id="wishBtn" type="button">Send a little more love ✨</button>
+    <p id="wishText" aria-live="polite" class="small"></p>
+  </section>
+
+  <footer>
+    <p>Made with love by Chet, just for Jaanu 💗</p>
+    <p class="small">A free little website, filled with feelings instead of gifts.</p>
+  </footer>
+</main>
+<script>
+  // Floating hearts
+  const heartLayer = document.getElementById('hearts');
+  const heartSymbols = ['💗','💕','💖','♡','💞'];
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('span');
+    el.className = 'heart';
+    el.textContent = heartSymbols[i % heartSymbols.length];
+    el.style.left = (Math.random() * 100) + '%';
+    el.style.fontSize = (14 + Math.random() * 19) + 'px';
+    el.style.animationDuration = (9 + Math.random() * 13) + 's';
+    el.style.animationDelay = (-Math.random() * 20) + 's';
+    heartLayer.appendChild(el);
+  }
+
+  // Countdown targets midnight at the start of 30 October, local device time.
+  const birthday = new Date(2026, 9, 30, 0, 0, 0);
+  const $ = id => document.getElementById(id);
+  function updateCountdown() {
+    const now = new Date();
+    let diff = birthday - now;
+    if (diff > 0) {
+      const days = Math.floor(diff / 86400000); diff %= 86400000;
+      const hours = Math.floor(diff / 3600000); diff %= 3600000;
+      const minutes = Math.floor(diff / 60000); diff %= 60000;
+      const seconds = Math.floor(diff / 1000);
+      $('days').textContent = days;
+      $('hours').textContent = hours;
+      $('minutes').textContent = minutes;
+      $('seconds').textContent = seconds;
+      $('countMessage').textContent = 'The birthday countdown is on! 💞';
+    } else {
+      $('days').textContent = '🎉';
+      $('hours').textContent = '🎂';
+      $('minutes').textContent = '💗';
+      $('seconds').textContent = '✨';
+      $('countMessage').textContent = 'It’s your birthday season, Jaanu! Happy Birthday! 💖';
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  function burstHearts(count = 24) {
+    for (let i = 0; i < count; i++) {
+      const h = document.createElement('span');
+      h.className = 'burst';
+      h.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      h.style.left = (8 + Math.random() * 84) + 'vw';
+      h.style.top = (45 + Math.random() * 40) + 'vh';
+      h.style.animationDelay = (Math.random() * .35) + 's';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 2100);
+    }
+  }
+  $('openLetter').addEventListener('click', () => {
+    $('letter').classList.toggle('open');
+    $('openLetter').textContent = $('letter').classList.contains('open') ? 'Close letter 💌' : 'Open My Heart 💗';
+    if ($('letter').classList.contains('open')) {
+      burstHearts(28);
+      $('letter').scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  });
+  const wishes = [
+    'If I could send you one thing through the distance, it would be a hug that lasts a little longer. 🫂',
+    'I hope this new year of your life brings you peace, laughter, courage and beautiful surprises. 🌷',
+    'No expensive present today—just a page full of reminders that you are appreciated. 💗',
+    'One day, let’s make a birthday memory together in person. Until then, here is a little piece of my heart. 💌'
+  ];
+  let wishIndex = 0;
+  $('wishBtn').addEventListener('click', () => {
+    $('wishText').textContent = wishes[wishIndex % wishes.length];
+    wishIndex++;
+    burstHearts(14);
+  });
+</script>
+</body>
+</html>
